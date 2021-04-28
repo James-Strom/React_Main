@@ -58,6 +58,7 @@ class Header extends Component {
               </Nav>
             </Navbar.Collapse>
           </Navbar>
+
           <Switch> 
             <Route path="/github/user/:login/:id" component={GitHubUser} />                                                                
             <Route path="/github" component={GitHub} />              
