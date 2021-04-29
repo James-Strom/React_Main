@@ -2,10 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
-import * as firebase from 'firebase';
+import reportWebVitals from './reportWebVitals';
+import firebase from 'firebase/app';
+import 'firebase/firestore';
 
-var firebaseConfig = {
+const firebaseConfig = {
   apiKey: "AIzaSyARJSy5m8JUpT607YI0HBzR30bfOQxa7ZM",
     authDomain: "crudproject-876b6.firebaseapp.com",
     databaseURL: "https://crudproject-876b6.firebaseio.com",
@@ -18,10 +19,10 @@ var firebaseConfig = {
 
   // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-// firebase.analytics();
+firebase.analytics();
 ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+reportWebVitals();
