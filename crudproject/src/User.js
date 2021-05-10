@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import firebase from 'firebase/app';
-import 'firebase/firestore';
-import { Table, Button, Modal  } from 'react-bootstrap';
+import { Table, Button, Modal} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import 'firebase/firestore';
 
 class User extends Component {
 
@@ -19,32 +19,32 @@ class User extends Component {
 
   }  
 
-  componentDidMount(){
-    firebase.database().ref('/')
-      .on('value',snapshot => {
-        let returnArr = [];        
-        snapshot.forEach(data => {
-            var user = data.val();
-            user['key'] = data.key;
-            returnArr.push(user);        
-        });                       
-        this.setState({
-            users: returnArr
-        })                
-      });           
-  }
- 
-  add(e) {
-    this.props.history.push("/add");  
-  }    
-
-
   openDeleteDialog(user){    
     this.setState({        
         showDeleteDialog: true,
         selectedUser: user
     });   
   } 
+
+  componentDidMount(){
+    firebase.database().ref('/')
+    .on('value',snapshot => {
+      let returnArr = [];        
+      snapshot.forEach(data => {
+          var user = data.val();
+          user['key'] = data.key;
+          returnArr.push(user);        
+      });                       
+      this.setState({
+          users: returnArr
+      })                
+    });           
+  }
+ 
+  add(e) {
+    this.props.history.push("/add");  
+  }    
+
   delete(e) {    
     firebase.database().ref('/'+this.state.selectedUser.key).remove()
     .then( x=> {
@@ -73,10 +73,13 @@ class User extends Component {
       <td>{user.email}</td>
       <td>
           <Link to={`/edit/${user.key}`}>            
-              Edit
+            Edit
           </Link>        
       </td>               
-      <td><Button onClick={ this.openDeleteDialog.bind(this,user)}>Remove</Button></td>          
+      <td>
+        <Button 
+        onClick={ this.openDeleteDialog.bind(this,user)}>Remove</Button>
+      </td>          
     </tr>                    
     );     
 

@@ -7,22 +7,17 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyARJSy5m8JUpT607YI0HBzR30bfOQxa7ZM",
-    authDomain: "crudproject-876b6.firebaseapp.com",
-    databaseURL: "https://crudproject-876b6.firebaseio.com",
-    projectId: "crudproject-876b6",
-    storageBucket: "crudproject-876b6.appspot.com",
-    messagingSenderId: "230071740417",
-    appId: "1:230071740417:web:cc9e5d2b34e9538e643800",
-    measurementId: "G-PBMJWF8L7T"
-  };
+  apiKey: "AIzaSyCTibVa2rFVltWLVsCg98RXVOkjGJm5V1s",
+  authDomain: "crudproject-422b6.firebaseapp.com",
+  projectId: "crudproject-422b6",
+  storageBucket: "crudproject-422b6.appspot.com",
+  messagingSenderId: "738730386489",
+  appId: "1:738730386489:web:0e6d249845b009c0d559e8",
+  measurementId: "G-WPY0JXL0H8"
+};
 
-  // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-firebase.analytics();
-ReactDOM.render(<App />, document.getElementById('root'));
+firebase.analytics()
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
+ReactDOM.render(<App />, document.getElementById('root'));
 reportWebVitals();
