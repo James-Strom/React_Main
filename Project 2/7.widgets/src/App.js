@@ -1,5 +1,7 @@
-import React from 'react';
-import Accordion from './components/Accordion'
+import React, { useEffect, useState } from 'react';
+// import Accordion from './components/Accordion';
+import Search from './components/Search';
+import Dropdown from './components/Dropdown'
 
 const items = [
     {
@@ -16,10 +18,37 @@ const items = [
     }
 ];
 
+const options = [
+    {
+        label: 'The Colour Red',
+        value: 'red'
+    },
+    {
+        label: 'The Colour Green',
+        value: 'green'
+    },
+    {
+        label: 'A Shade of Blue',
+        value: 'blue'
+    },
+    
+]
+
 const App = () => {
+    const [selected, setSelected] = useState(options[0]);
+    const [showDropdown, setShowDropdown] = useState(true);
+
     return (
         <div>
-            <Accordion items={items} />
+            <button onClick={() => setShowDropdown(!showDropdown)}>Toggle Dropdown</button>
+            {showDropdown ?
+                <Dropdown
+                    selected={selected} 
+                    onSelectedChange={setSelected}
+                    options={options}
+                /> : null
+            }
+            {/* <Accordion items={items} /> */}
         </div>
     );
 };
